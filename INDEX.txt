@@ -1,0 +1,8 @@
+/AZ Moda
+    /css
+        styles.css      <-- Estilos de la página
+    /js
+        script.js       <-- Funcionalidades en JavaScript
+    /images
+        (Aquí van las imágenes, logotipos y fondos)
+    index.html          <-- Archivo principal HTML

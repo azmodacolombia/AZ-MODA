@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ Moda - Contacto</title>
+    <link rel="icon" href="C:\Users\Esteban\Videos\logo.png" type="C:\Users\Esteban\Videos\logo.png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.9);
+            color: #333;
+            padding: 20px 0;
+            text-align: center;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        header img {
+            max-width: 150px; /* Ajusta el tamaño del logo */
+            margin-bottom: 10px;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: rgba(255, 255, 255, 0.6);
+            padding: 15px;
+            backdrop-filter: blur(10px);
+            position: relative;
+            z-index: 2;
+        }
+        nav a {
+            padding: 15px 30px;
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #f39c12;
+            color: white;
+        }
+        .contact-container {
+            max-width: 600px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .contact-buttons {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .contact-button {
+            background-color: #fff;
+            border: 2px solid #007bff;
+            border-radius: 5px;
+            padding: 10px;
+            margin: 5px;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s;
+        }
+        .contact-button img {
+            width: 25px; /* Tamaño de los iconos */
+            margin-right: 8px;
+        }
+        .contact-button:hover {
+            background-color: #007bff;
+            color: white;
+        }
+        .map-container {
+            margin: 20px 0;
+            overflow: hidden;
+            position: relative;
+            padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+            height: 0;
+        }
+        .map-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        footer {
+            background-color: #222;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <img src="C:/Users/Esteban/Videos/s.png" alt="Logo AZ Moda">
+        <h1>Contacto</h1>
+    </header>
+    
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="medidas.html">Medidas</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="contact-container">
+        <h2>Contáctanos</h2>
+        <div class="contact-buttons">
+            <a href="https://wa.me/573046385554" class="contact-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp_icon.svg" alt="WhatsApp"> WhatsApp
+            </a>
+            <a href="mailto:azmodacolombia@gmail.com" class="contact-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/3/3c/Gmail_icon_%282020-2021%29.png" alt="Correo"> Correo
+            </a>
+            <a href="https://www.instagram.com/azmoda_colombia/" class="contact-button">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram"> Instagram
+            </a>
+        </div>
+        
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d19884.09076913147!2d-75.4923161!3d5.0741262!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e1f524f8bbcbf79%3A0xb2193d2c6c45ee0a!2sAZ%20Moda!5e0!3m2!1ses!2sco!4v1686476570533!5m2!1ses!2sco" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 AZ Moda. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>

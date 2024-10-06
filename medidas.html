@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AZ Moda - Medidas</title>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@latest/dist/model-viewer.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('C:/Users/Esteban/Videos/AZ MODA PAGINA/IMAGENES FONDOS/fondo medidas.jpg') no-repeat center center fixed;
+            background-size: cover;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        header {
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+        #form-container {
+            max-width: 400px;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 10;
+            margin: auto;
+            margin-top: 20px;
+        }
+        model-viewer {
+            width: 300px;
+            height: 600px;
+            margin: 20px auto;
+            border: 2px solid #fff;
+            border-radius: 15px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 5;
+        }
+        input[type="text"], input[type="number"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>AZ Moda</h1>
+    <nav>
+        <a href="index.html">Inicio</a>
+        <a href="catalogo.html">Catálogo</a>
+        <a href="medidas.html">Medidas</a>
+        <a href="contacto.html">Contacto</a>
+    </nav>
+</header>
+
+<model-viewer src="mannequin.glb" alt="Maniquí 3D" auto-rotate camera-controls></model-viewer>
+
+<div id="form-container">
+    <h2>Formulario de Medidas</h2>
+    <form id="medidasForm">
+        <label for="nombre">Nombre Completo:</label>
+        <input type="text" id="nombre" required>
+        <label for="celular">Número de Celular:</label>
+        <input type="text" id="celular" required>
+        <label for="pecho">Pecho:</label>
+        <input type="number" id="pecho" required>
+        <label for="busto">Busto:</label>
+        <input type="number" id="busto" required>
+        <label for="cintura">Cintura:</label>
+        <input type="number" id="cintura" required>
+        <label for="cadera">Cadera:</label>
+        <input type="number" id="cadera" required>
+        <label for="separacionBusto">Separación de Busto:</label>
+        <input type="number" id="separacionBusto" required>
+        <label for="talleDelantero">Talle Delantero:</label>
+        <input type="number" id="talleDelantero" required>
+        <label for="bajadaBusto">Bajada de Busto:</label>
+        <input type="number" id="bajadaBusto" required>
+        <label for="largoBlusa">Largo Blusa:</label>
+        <input type="number" id="largoBlusa" required>
+        <label for="bajadaCadera">Bajada de Cadera:</label>
+        <input type="number" id="bajadaCadera" required>
+        <label for="espalda">Espalda:</label>
+        <input type="number" id="espalda" required>
+        <label for="hombro">Hombro:</label>
+        <input type="number" id="hombro" required>
+        <label for="talleEspalda">Talle de Espalda:</label>
+        <input type="number" id="talleEspalda" required>
+        <label for="largoFalda">Largo Falda:</label>
+        <input type="number" id="largoFalda" required>
+        <label for="largoManga">Largo Manga:</label>
+        <input type="number" id="largoManga" required>
+        <label for="puño">Puño:</label>
+        <input type="number" id="puño" required>
+        <label for="escote">Escote:</label>
+        <input type="number" id="escote" required>
+        <label for="largoPantalon">Largo Pantalón:</label>
+        <input type="number" id="largoPantalon" required>
+        <label for="largoRodilla">Largo Rodilla:</label>
+        <input type="number" id="largoRodilla" required>
+        <label for="bota">Bota:</label>
+        <input type="number" id="bota" required>
+        <button type="submit">Guardar Cliente</button>
+    </form>
+    <button onclick="descargarExcel()">Descargar Excel</button>
+    <button onclick="descargarPDF()">Descargar PDF</button>
+    <div id="clientes"></div>
+</div>
+
+<script>
+    const form = document.getElementById('medidasForm');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const nuevoCliente = {
+            nombre: form.nombre.value,
+            celular: form.celular.value,
+            pecho: form.pecho.value,
+            busto: form.busto.value,
+            cintura: form.cintura.value,
+            cadera: form.cadera.value,
+            separacionBusto: form.separacionBusto.value,
+            talleDelantero: form.talleDelantero.value,
+            bajadaBusto: form.bajadaBusto.value,
+            largoBlusa: form.largoBlusa.value,
+            bajadaCadera: form.bajadaCadera.value,
+            espalda: form.espalda.value,
+            hombro: form.hombro.value,
+            talleEspalda: form.talleEspalda.value,
+            largoFalda: form.largoFalda.value,
+            largoManga: form.largoManga.value,
+            puño: form.puño.value,
+            escote: form.escote.value,
+            largoPantalon: form.largoPantalon.value,
+            largoRodilla: form.largoRodilla.value,
+            bota: form.bota.value,
+        };
+        await fetch('http://localhost:3000/api/clientes', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(nuevoCliente)
+        });
+        form.reset();
+        cargarClientes();
+    });
+
+    async function cargarClientes() {
+        const response = await fetch('http://localhost:3000/api/clientes');
+        const clientes = await response.json();
+        const clientesDiv = document.getElementById('clientes');
+        clientesDiv.innerHTML = '<h3>Lista de Clientes</h3><table><tr><th>Nombre</th><th>Celular</th><th>Pecho</th><th>Busto</th><th>Cintura</th><th>Cadera</th></tr>';
+        clientes.forEach(cliente => {
+            clientesDiv.innerHTML += `<tr><td>${cliente.nombre}</td><td>${cliente.celular}</td><td>${cliente.pecho}</td><td>${cliente.busto}</td><td>${cliente.cintura}</td><td>${cliente.cadera}</td></tr>`;
+        });
+        clientesDiv.innerHTML += '</table>';
+    }
+
+    async function descargarExcel() {
+        window.location.href = 'http://localhost:3000/api/clientes/excel';
+    }
+
+    async function descargarPDF() {
+        window.location.href = 'http://localhost:3000/api/clientes/pdf';
+    }
+
+    cargarClientes();
+</script>
+
+</body>
+</html>
